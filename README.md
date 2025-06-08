@@ -7,9 +7,6 @@
 
 ## Suara Anda, Aman dan Transparan di Atas Blockchain
 
-![Screenshot Aplikasi Voting](https://i.imgur.com/rM7gszQ.png)
-*(Catatan: Anda bisa mengganti link di atas dengan screenshot aplikasi Anda sendiri setelah berjalan)*
-
 Selamat datang di proyek Aplikasi Voting Terdesentralisasi! Ini adalah sebuah aplikasi web3 (dApp) yang dibangun untuk menunjukkan bagaimana proses pemilihan dapat dilakukan secara aman, transparan, dan tidak dapat diubah (immutable) dengan memanfaatkan teknologi blockchain Ethereum.
 
 Proyek ini adalah hasil dari proses belajar dan eksplorasi dalam membangun dApp dari awal, mulai dari penulisan *smart contract* hingga pengembangan antarmuka (frontend) yang interaktif.
