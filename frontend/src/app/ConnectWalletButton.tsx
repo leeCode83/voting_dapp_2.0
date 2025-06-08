@@ -1,39 +1,19 @@
 'use client';
 
-import { ethers, type JsonRpcSigner } from "ethers";
-import { useState } from "react";
+// Komponen ini sekarang lebih "dumb", hanya menampilkan UI berdasarkan props
+type ConnectWalletButtonProps = {
+  walletAddress: string | null;
+  connectWallet: () => void;
+};
 
-export default function ConnectWalletButton() {
-  const [walletAddress, setWalletAddress] = useState<string | null>(null);
-  const [signer, setSigner] = useState<JsonRpcSigner | null>(null);
-
-  async function connectWallet() {
-    try {
-        let provider;
-
-        if ((window as any).ethereum == null) {
-          console.log("MetaMask not installed; using read-only defaults")
-          provider = ethers.getDefaultProvider()
-        } else {
-          provider = new ethers.BrowserProvider((window as any).ethereum)
-          const newSigner = await provider.getSigner();
-          const newAddress = await newSigner.getAddress();
-          setWalletAddress(newAddress);
-          setSigner(newSigner);
-          console.log("Berhasil")
-        }
-      } catch (error) {
-          console.log(error);
-      }
-    }
-
+export default function ConnectWalletButton({ walletAddress, connectWallet }: ConnectWalletButtonProps) {
   return (
-    <div className="flex flex-col items-center justify-center p-4 bg-slate-800 rounded-lg shadow-xl w-full max-w-sm mx-auto my-8">
+    <div className="flex flex-col items-center justify-center p-4 w-full max-w-sm mx-auto my-8">
       {walletAddress ? (
-        <div className="text-center w-full p-6 bg-green-700 rounded-md">
-          <p className="text-xl font-semibold text-white mb-3">Dompet Terhubung!</p>
-          <div className="bg-slate-900 p-3 rounded-md shadow-inner">
-            <p className="text-sm text-green-400 font-mono break-all">
+        <div className="text-center w-full p-4 bg-green-900/50 border border-green-700 rounded-md">
+          <p className="text-lg font-semibold text-green-300 mb-2">Dompet Terhubung!</p>
+          <div className="bg-slate-900 p-2 rounded-md">
+            <p className="text-xs text-slate-300 font-mono break-all">
               {walletAddress}
             </p>
           </div>
